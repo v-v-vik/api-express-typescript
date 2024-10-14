@@ -13,18 +13,18 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const supertest_1 = __importDefault(require("supertest"));
-const src_1 = require("../../src");
+const app_1 = require("../../src/app");
 describe('/course', () => {
     beforeAll(() => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(src_1.app).delete("/__test__/data");
+        yield (0, supertest_1.default)(app_1.app).delete("/__test__/data");
     }));
     it("should return 200 and an empty array", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(src_1.app)
+        yield (0, supertest_1.default)(app_1.app)
             .get("/courses")
             .expect(200, []);
     }));
     it("should return 404 for not existing course", () => __awaiter(void 0, void 0, void 0, function* () {
-        yield (0, supertest_1.default)(src_1.app)
+        yield (0, supertest_1.default)(app_1.app)
             .get("/courses/1")
             .expect(404);
     }));

@@ -1,13 +1,20 @@
 import request from "supertest";
-import {app} from "../../src";
+import {app} from "../../src/app";
 
-describe('/course', () => {
+const getRequest = () => {
+    return request(app)
+}
+
+describe('/courses', () => {
     beforeAll(async () => {
-        await request(app).delete("/__test__/data")
+        await getRequest().delete("/__tests__/data");
+        const res = await getRequest().get("/courses");
+        console.log("Courses after delete:", res.body);
+
     });
 
     it("should return 200 and an empty array", async () => {
-        await request(app)
+        await getRequest()
             .get("/courses")
             .expect(200, [])
 
@@ -15,7 +22,7 @@ describe('/course', () => {
     });
 
     it("should return 404 for not existing course", async () => {
-        await request(app)
+        await getRequest()
             .get("/courses/1")
             .expect(404)
 

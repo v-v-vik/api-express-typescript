@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "type": "module",
   "scripts": {
     "watch": "tsc -w",
     "dev": "yarn nodemon --inspect dist/index.js",
-    "jest": "jest -i"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "dependencies": {
     "express": "^4.21.1"
