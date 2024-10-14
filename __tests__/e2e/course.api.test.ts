@@ -6,6 +6,7 @@ const getRequest = () => {
 }
 
 describe('/courses', () => {
+
     beforeAll(async () => {
         await getRequest().delete("/__tests__/data");
         const res = await getRequest().get("/courses");

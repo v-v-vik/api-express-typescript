@@ -1,7 +1,7 @@
 import express from "express";
-import {getCoursesRouter, getInterestingRouter} from "./routes/courses.js";
-import {getTestsRouter} from "./routes/tests.js";
-import {db} from "./db/db.js";
+import {getCoursesRouter, getInterestingRouter} from "./routes/courses";
+import {getTestsRouter} from "./routes/tests";
+import {db} from "./db/db";
 
 
 export const app = express();

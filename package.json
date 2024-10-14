@@ -3,11 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
-  "type": "module",
   "scripts": {
     "watch": "tsc -w",
     "dev": "yarn nodemon --inspect dist/index.js",
-    "test": "jest",
+    "test": "jest --runInBand --config ./__tests__/jest-e2e.config.js",
     "test:watch": "jest --watch"
   },
   "dependencies": {
